@@ -410,7 +410,6 @@ def main():
                     module.fail_json(msg='VLAN  `%s` cannot be found.' % vlan['name'])
 
         return vlans_list
-
     option_spec = dict(
         # one of name or num is required; enforced by the function options()
         name=dict(),
