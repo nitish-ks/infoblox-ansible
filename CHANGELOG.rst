@@ -3,6 +3,42 @@ Infoblox.Nios_Modules Release Notes
 ===================================
 
 .. contents:: Topics
+
+v1.7.0
+======
+
+Release Summary
+---------------
+This release brings new modules for extensible attribute definition and managing DNS nameserver groups. 
+Additionally, it includes various enhancements, new features, and bug fixes aimed at improving the system's overall functionality and performance.
+
+Minor Changes
+-------------
+- Added support for the `use_for_ea_inheritance` parameter in Host Record to inherit EA from Host address.
+- Added support for the `use_dns_ea_inheritance` parameter in Host Record to inherit EA from associated zone.
+- Enabled IPv4 support for PXE server configuration in the Host Record module.
+- Introduced `use_logic_filter_rules` & `logic_filter_rules` support for both IPv4 and IPv6 network and network container.
+- Added IPv6 network container support for the `nios_next_network` lookup plugin.
+- Added `use_range` parameter to the nios_next_ip lookup plugin, enabling lookup for the next available IP from a network range.
+- Upgraded the base WAPI version to 2.12.3.
+- Improved handling of DHCP options in DHCP Range, Network, and Network Container.
+
+New Modules
+-----------
+- infoblox.nios_modules.nios_extensible_attribute - Configure Infoblox NIOS extensible attribute definition
+- infoblox.nios_modules.nios_nsgroup_delegation - Configure InfoBlox DNS Nameserver Delegation Groups
+- infoblox.nios_modules.nios_nsgroup_forwardingmember - Configure InfoBlox DNS Nameserver Forwarding Member Groups
+- infoblox.nios_modules.nios_nsgroup_forwardstubserver - Configure InfoBlox DNS Nameserver Forward/Stub Server Groups
+- infoblox.nios_modules.nios_nsgroup_stubmember - Configure InfoBlox DNS Nameserver Stub Member Groups
+
+Bugfixes
+--------
+- Omits DNS view from filter critera when renaming a host object and DNS is bypassed. (https://github.com/infobloxopen/infoblox-ansible/issues/230)
+- nios_host_record - rename logic included DNS view in filter critera, even when DNS had been bypassed.
+- Fixed an issue in the `nios_host_record` module where the `mac` parameter was not handled correctly.
+- Fixed the update operation in the `nios_network` module where the `network` parameter was not handled correctly.
+- Adjusted unit test assertions for Mock.called_once_with.
+
 v1.6.1
 ======
 
