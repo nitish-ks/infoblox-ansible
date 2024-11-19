@@ -161,7 +161,7 @@ def main():
     ib_spec = dict(
         name=dict(required=True, ib_req=True),
         id=dict(type='int', required=True, ib_req=True),
-        parent=dict(default='default', transform=parent_transform),
+        parent=dict(required=True, ib_req=True, transform=parent_transform),
         comment=dict(),
         contact=dict(),
         department=dict(),
