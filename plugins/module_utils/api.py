@@ -770,6 +770,12 @@ class WapiModule(WapiBase):
             except TypeError:
                 name = obj_filter['name']
 
+            return_fields = list(ib_spec.keys())
+
+            if (ib_obj_type == NIOS_ADMINUSER):
+                if 'password' in return_fields:
+                    return_fields.remove('password')
+
             if old_name and new_name:
                 if (ib_obj_type == NIOS_HOST_RECORD):
                     # to check only by old_name if dns bypassing is set
