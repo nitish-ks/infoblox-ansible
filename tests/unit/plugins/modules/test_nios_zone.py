@@ -36,7 +36,6 @@ class TestNiosZoneModule(TestNiosModule):
         self.module.check_mode = False
         self.module.params = {'provider': None}
         self.mock_wapi = patch('ansible_collections.infoblox.nios_modules.plugins.modules.nios_zone.WapiModule')
-        import pdb; pdb.set_trace()
         self.exec_command = self.mock_wapi.start()
         self.mock_wapi_run = patch('ansible_collections.infoblox.nios_modules.plugins.modules.nios_zone.WapiModule.run')
         self.load_config = self.mock_wapi_run.start()
